@@ -12,7 +12,7 @@ import { slideIn } from "../utils/motion";
 // public key - qavNn36pkk3901_9c
 
 const Contact = () => {
-
+  const[info,setInfo]=useState("");
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -54,7 +54,10 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+   
+          setInfo("Thank you. I will get back to you as soon as possible.");
+          console.log("succ")
+
 
           setForm({
             name: "",
@@ -65,8 +68,8 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
+          setInfo("Ahh, something went wrong. Please try again.");
+  console.log("error")
         }
       );
   };
@@ -127,6 +130,7 @@ const Contact = () => {
           >
             {loading ? "Sending..." : "Send"}
           </button>
+          <div style={{color:"green"}} >{info}</div>
         </form>
       </motion.div>
 
