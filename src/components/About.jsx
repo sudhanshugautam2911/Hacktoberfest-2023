@@ -32,7 +32,6 @@ const ServiceCard = ({ index, title, icon, link }) => (
           </h3>
         </div>
       </motion.div>
-    </a>
   </Tilt>
 );
 
